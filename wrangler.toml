@@ -1,0 +1,16 @@
+name = "dandelion"
+main = "src/server/index.ts"
+compatibility_date = "2025-06-01"
+
+# 静态资源：React 构建产物，免费且不限请求量
+[assets]
+directory = "./dist/client"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "dandelion-db"
+# 部署前：运行 `npx wrangler d1 create dandelion-db`，把返回的 database_id 填到这里
+# 本地开发时使用占位符即可
+database_id = "placeholder-local-dev"
