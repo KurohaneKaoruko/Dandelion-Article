@@ -43,6 +43,16 @@ npm run deploy          # 构建 + 部署
 
 部署完成后 Wrangler 会输出 `https://dandelion.<你的子域>.workers.dev`。
 
+## 方式二：GitHub 仓库自动部署（推荐，全程网页点选）
+
+1. Cloudflare 控制台 → **Workers & Pages** → **Create** → **Import from Git** → 选 `Dandelion-Article` 仓库
+2. 部署配置填：
+   - **Build command**：`npm install && npm run build`
+   - **Deploy command**：`npx wrangler deploy`
+3. 点 Deploy，完成
+
+数据库全自动：部署命令里包含 `node scripts/setup.mjs` 的逻辑不需要手动跑——如果构建环境中 `wrangler deploy` 因 D1 未绑定失败，把 **Deploy command** 改为 `npm run deploy:git` 再重试一次即可，它会自动创建 `dandelion-db`、回填 `database_id` 并初始化表结构（之后每次部署都会自动检测，已存在就直接复用）。
+
 ## 后续可加的功能
 
 - 图片上传到 R2（免费 10GB，出站流量免费）

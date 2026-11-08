@@ -9,6 +9,7 @@
     "build": "vite build",
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.worker.json --noEmit",
     "deploy": "npm run build && wrangler deploy",
+    "deploy:git": "npm run build && node scripts/setup.mjs && wrangler deploy",
     "setup": "node scripts/setup.mjs",
     "db:local": "wrangler d1 execute DB --local --file=./schema.sql",
     "db:remote": "wrangler d1 execute DB --remote --file=./schema.sql"
