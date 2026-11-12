@@ -29,9 +29,10 @@ npm run dev:server      # 跑 wrangler dev（API，http://127.0.0.1:8787）
 npm run dev:client      # 跑 Vite（前端，http://localhost:5173，/api 已代理到 8787）
 ```
 
-生产模式验证：`npm run build && npm run dev:server` 后直接访问 http://127.0.0.1:0.0.0.0:8787（wrangler dev 默认地址，即 127.0.0.1:8dev
+生产模式验证：`npm run build && npm run dev:server` 后直接访问 http://127.0.0.1:0.0.0.0:8787
 
-## 部署到 Cloudflare（全程免费）
+
+## 部署到 Cloudflare
 
 ```bash
 npx wrangler login
@@ -43,7 +44,7 @@ npm run deploy          # 构建 + 部署
 
 部署完成后 Wrangler 会输出 `https://dandelion.<你的子域>.workers.dev`。
 
-## 方式二：GitHub 仓库自动部署（推荐，全程网页点选）
+## GitHub 仓库自动部署
 
 1. Cloudflare 控制台 → **Workers & Pages** → **Create** → **Import from Git** → 选 `Dandelion-Article` 仓库
 2. 部署配置填：
